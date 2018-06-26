@@ -79,7 +79,7 @@ SqlMapConfig.xml配置文件：可以配置properties属性、别名、mapper加
 ## 输入映射和输出映射
 
 - 输入映射：
-  - parameterType：指定输入参数类型可以简单类型、pojo、hashmap。
+  - parameterType：指定输入参数类型可以为简单类型、pojo、hashmap。
   - 对于综合查询，建议parameterType使用包装的pojo，有利于系统扩展。
 
 - 输出映射：
