@@ -29,7 +29,7 @@
 
 - SqlSessionFactoryBuilder
 
-通过`SqlSessionFactoryBuilder`创建会话工厂`SqlSessionFactory`将`SqlSessionFactoryBuilder`当成一个工具类使用即可，不需要使用单例管理`SqlSessionFactoryBuilder`。在需要创建`SqlSessionFactory`时候，只需要new一次`SqlSessionFactoryBuilder`即可。
+通过`SqlSessionFactoryBuilder`创建会话工厂`SqlSessionFactory`将`SqlSessionFactoryBuilder`当成一个工具类使用即可，不需要使用单例管理`SqlSessionFactoryBuilder`。在需要创建`SqlSessionFactory`时候，只需要new一次`SqlSessionFactoryBuilder`即可（SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().builder()，注意这里的SqlSessionFactoryBuilder是一个类，new SqlSessionFactoryBuilder()表示创建一个实例化对象）。
 
 
 - `SqlSessionFactory`
