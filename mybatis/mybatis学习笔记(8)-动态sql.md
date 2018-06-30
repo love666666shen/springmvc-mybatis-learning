@@ -90,7 +90,7 @@ DEBUG [main] - <==      Total: 6
 [User [id=10, username=张三, sex=1, birthday=Thu Jul 10 00:00:00 CST 2014, address=北京市], User [id=16, username=张小明, sex=1, birthday=null, address=河南郑州], User [id=22, username=陈小明, sex=1, birthday=null, address=河南郑州], User [id=24, username=张三丰, sex=1, birthday=null, address=河南郑州], User [id=25, username=陈小明, sex=1, birthday=null, address=河南郑州], User [id=28, username=王小军, sex=1, birthday=Tue Feb 23 00:00:00 CST 2016, address=河南郑州]]
 ```
 
-可以看到sql语句为`reparing: SELECT * FROM user WHERE user.sex=? `，没有username的部分
+可以看到sql语句为`Preparing: SELECT * FROM user WHERE user.sex=? `，没有username的部分
 
 
 2.`userQueryVo`设为null,则`userCustom`为null
@@ -198,13 +198,13 @@ public class UserQueryVo {
      AND (id=1 OR id=10 OR id=16)
      -->
     <foreach collection="ids" item="user_id" open="AND (" close=")" separator="or">
-        <!-- 每个遍历需要拼接的串 -->
+        <!-- 每个遍历需要拼接的串 ，注意这里使用id=#{user_id}而不是#{user_id}，因为要拼接的串中需要含有"id=xx"的字样-->
         id=#{user_id}
     </foreach>
     
     <!-- 实现  “ and id IN(1,10,16)”拼接 -->
     <!-- <foreach collection="ids" item="user_id" open="and id IN(" close=")" separator=",">
-        每个遍历需要拼接的串
+        每个遍历需要拼接的串，注意这里直接使用#{user_id}传入具体的数字，因为要拼接的串中不需要含有"id=xx"的字样
         #{user_id}
     </foreach> -->
 
